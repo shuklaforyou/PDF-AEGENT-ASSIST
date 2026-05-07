@@ -6,7 +6,7 @@
 
 ### How to Report
 
-Send an email to: **security@example.com** with the following information:
+Send an email to: **abhicontact602** with the following information:
 
 1. **Type of vulnerability** (e.g., XSS, injection, authentication bypass)
 2. **Location** (file, function, or component affected)
