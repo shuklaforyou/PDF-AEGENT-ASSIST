@@ -37,10 +37,8 @@
 
 | Platform | Download | Size |
 |----------|----------|------|
-| **macOS** | [DMG Installer](https://github.com/your-username/pdf-agent-assist/releases/download/v1.0.0/PDF-Agent-Assist-1.0.0.dmg) | ~150 MB |
-| **macOS** | [ZIP Archive](https://github.com/your-username/pdf-agent-assist/releases/download/v1.0.0/PDF-Agent-Assist-1.0.0-mac.zip) | ~145 MB |
-| **Windows** | [NSIS Installer](https://github.com/your-username/pdf-agent-assist/releases/download/v1.0.0/PDF-Agent-Assist-Setup-1.0.0.exe) | ~160 MB |
-| **Windows** | [ZIP Archive](https://github.com/your-username/pdf-agent-assist/releases/download/v1.0.0/PDF-Agent-Assist-1.0.0-win.zip) | ~155 MB |
+| **macOS** | [DMG Installer](https://drive.google.com/file/d/1fvtSWw0onAtZMWnVbnHAxrEzFJuWyig9/view?usp=sharing) | ~150 MB |
+| **Windows** | [ZIP Archive](https://drive.google.com/file/d/10Nr7pnWL8Q_EwxRHkq8xwzSbTRDuZO_L/view?usp=sharing) | ~155 MB |
 
 > **Note:** Replace URLs with actual release paths. Installers are auto-generated in the `release/` directory after building.
 
