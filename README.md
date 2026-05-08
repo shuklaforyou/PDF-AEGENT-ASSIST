@@ -37,8 +37,8 @@
 
 | Platform | Download | Size |
 |----------|----------|------|
-| **macOS** | [DMG Installer](https://drive.google.com/file/d/1fvtSWw0onAtZMWnVbnHAxrEzFJuWyig9/view?usp=sharing) | ~150 MB |
-| **Windows** | [ZIP Archive](https://drive.google.com/file/d/10Nr7pnWL8Q_EwxRHkq8xwzSbTRDuZO_L/view?usp=sharing) | ~155 MB |
+| **macOS** | [DMG Installer](https://drive.google.com/file/d/1MWiFJ26nljVrdHOf-jrU6r3kuoRmk4wd/view?usp=sharing) | ~150 MB |
+| **Windows** | [ZIP Archive](https://drive.google.com/file/d/1Mpao0uSz7HQDYsdi2y-OVGW-yGA7JJGT/view?usp=sharing) | ~155 MB |
 
 > **Note:** Replace URLs with actual release paths. Installers are auto-generated in the `release/` directory after building.
 
