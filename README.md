@@ -184,6 +184,29 @@ npm run build:mac    # or build:win
 
 ---
 
+# 🚧 Currently Working On
+
+- Desktop application stability improvements
+- Export chat/history functionality
+---
+
+# 🛣️ Planned Features
+
+- Drag & drop PDF upload
+- Chat history management
+- Offline/local AI model support
+- Multi-language document understanding
+
+Expected with next version  release 
+---
+
+# 🐛 Known Issues
+
+- Large PDFs may increase response time
+- Some complex document layouts affect extraction quality
+- High token usage on very large context windows
+- Desktop packaging optimization is still in progress
+
 ## 🤝 Contributing
 
 We welcome contributions! Whether you're fixing bugs, adding features, or improving documentation, your work is valued.
