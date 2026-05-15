@@ -37,8 +37,8 @@
 
 | Platform | Download | Size |
 |----------|----------|------|
-| **macOS** | [DMG Installer]() | ~150 MB |
-| **Windows** | [ZIP Archive]() | ~155 MB |
+| **macOS** | [DMG Installer](https://github.com/shuklaforyou/PDF-AGENT-ASSIST/releases/tag/v1.1.0) | ~150 MB |
+| **Windows** | [ZIP Archive](https://github.com/shuklaforyou/PDF-AGENT-ASSIST/releases/tag/v1.1.0) | ~155 MB |
 
 > **Note:** Installers are available in the `release/` directory after building. Update the release version in the application settings for the latest features.
 
