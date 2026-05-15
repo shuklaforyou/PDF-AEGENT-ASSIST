@@ -32,6 +32,15 @@
       "category": "public.app-category.productivity",
       "target": ["dmg", "zip"]
     },
+    "fileAssociations": [
+      {
+        "ext": "pdf",
+        "name": "PDF Document",
+        "description": "Open with PDF Agent Assist",
+        "role": "Viewer",
+        "isPackage": false
+      }
+    ],
     "win": {
       "icon": "public/icons/icon.png",
       "signAndEditExecutable": false,

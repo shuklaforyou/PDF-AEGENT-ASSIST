@@ -41,7 +41,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = resolveWorkerSrc();
 
 
 interface PDFViewerProps {
-  file: File | string | null;
+  file: File | string | Uint8Array | null;
   onTextSelect: (text: string, x: number, y: number) => void;
   onFileChange: (file: File) => void;
 }
@@ -68,15 +68,16 @@ export function PDFViewer({ file, onTextSelect, onFileChange }: PDFViewerProps) 
     if (file instanceof File) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        if (e.target?.result) {
-          setPdfData(e.target.result as ArrayBuffer);
-        }
+        if (e.target?.result) setPdfData(e.target.result as ArrayBuffer);
       };
       reader.onerror = (e) => {
-        console.error("FileReader error:", e);
-        import("sonner").then(({ toast }) => toast.error("Failed to read file"));
+        console.error('FileReader error:', e);
+        import('sonner').then(({ toast }) => toast.error('Failed to read file'));
       };
       reader.readAsArrayBuffer(file);
+    } else if (file instanceof Uint8Array) {
+      // Already a binary buffer from IPC — pass directly as ArrayBuffer
+      setPdfData(file.buffer as ArrayBuffer);
     } else {
       setPdfData(file);
     }

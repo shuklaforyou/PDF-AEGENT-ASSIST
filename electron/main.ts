@@ -1,21 +1,28 @@
 import { app, BrowserWindow, Menu, MenuItem, nativeTheme, ipcMain } from 'electron';
 import path from 'path';
+import fs from 'fs';
 
 // The built directory structure
-//
-// ├─┬─┬ dist
-// │ │ └── index.html
-// │ │
-// │ ├─┬ dist-electron
-// │ │ ├── main.js
-// │ │ └── preload.js
-// │
 process.env.DIST = path.join(__dirname, '../dist');
 process.env.VITE_PUBLIC = app.isPackaged ? process.env.DIST : path.join(process.env.DIST, '../public');
 
 let win: BrowserWindow | null;
-// 🚧 Use ['ENV_NAME'] avoid vite:define plugin - SystemJS vite plugin
 const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL'];
+
+let initialFilePath: string | null = null;
+
+// macOS: intercept open-file (double-click in Finder, open-with, dock drop)
+// This fires BEFORE the app is fully ready, so we just store the path.
+// We send it to the renderer once the window finishes loading.
+app.on('open-file', (event, filePath) => {
+  event.preventDefault();
+  initialFilePath = filePath;
+  // If the window already exists and finished loading, send immediately
+  if (win && !win.isDestroyed() && win.webContents.isLoading() === false) {
+    win.webContents.send('open-pdf', filePath);
+  }
+  // Otherwise it will be delivered in did-finish-load below
+});
 
 function createWindow() {
   win = new BrowserWindow({
@@ -25,31 +32,36 @@ function createWindow() {
     height: 800,
     minWidth: 800,
     minHeight: 600,
-    titleBarStyle: 'hiddenInset',  // macOS: hides title text, keeps traffic lights
+    titleBarStyle: 'hiddenInset',
     trafficLightPosition: { x: 14, y: 14 },
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
   });
 
-  // Push message to Renderer-process on load.
   win.webContents.on('did-finish-load', () => {
     win?.webContents.send('main-process-message', (new Date()).toLocaleString());
+
+    // Windows / Linux: pick up PDF path from process args
+    if (process.platform !== 'darwin') {
+      const fileArg = process.argv.find(arg => arg.toLowerCase().endsWith('.pdf'));
+      if (fileArg) initialFilePath = fileArg;
+    }
+
+    // If open-file fired before the window was ready, deliver the path now
+    if (initialFilePath) {
+      win?.webContents.send('open-pdf', initialFilePath);
+    }
   });
 
   if (VITE_DEV_SERVER_URL) {
     win.loadURL(VITE_DEV_SERVER_URL);
-    // Open DevTools automatically to help debug white screens
     win.webContents.openDevTools();
   } else {
-    // win.loadFile('dist/index.html')
     win.loadFile(path.join(process.env.DIST, 'index.html'));
   }
 }
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -74,6 +86,18 @@ app.whenReady().then(() => {
   });
   nativeTheme.on('updated', () => {
     win?.webContents.send('native-theme-changed', nativeTheme.shouldUseDarkColors ? 'dark' : 'light');
+  });
+
+  ipcMain.handle('get-initial-file', () => initialFilePath);
+  
+  ipcMain.handle('read-pdf-file', async (_e, filePath: string) => {
+    try {
+      const data = await fs.promises.readFile(filePath);
+      return data; // returning Uint8Array / Buffer
+    } catch (error) {
+      console.error('Failed to read PDF file:', error);
+      return null;
+    }
   });
 
   createWindow();

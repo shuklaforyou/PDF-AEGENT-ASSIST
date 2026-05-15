@@ -33,14 +33,14 @@
 
 ## 📥 Downloads
 
-### Latest Release: v1.0.0
+### Latest Release: v1.1.0
 
 | Platform | Download | Size |
 |----------|----------|------|
-| **macOS** | [DMG Installer](https://drive.google.com/file/d/1MWiFJ26nljVrdHOf-jrU6r3kuoRmk4wd/view?usp=sharing) | ~150 MB |
-| **Windows** | [ZIP Archive](https://drive.google.com/file/d/1Mpao0uSz7HQDYsdi2y-OVGW-yGA7JJGT/view?usp=sharing) | ~155 MB |
+| **macOS** | [DMG Installer]() | ~150 MB |
+| **Windows** | [ZIP Archive]() | ~155 MB |
 
-> **Note:** Replace URLs with actual release paths. Installers are auto-generated in the `release/` directory after building.
+> **Note:** Installers are available in the `release/` directory after building. Update the release version in the application settings for the latest features.
 
 ---
 
@@ -51,6 +51,9 @@
 - 📄 **PDF Viewer** — Built-in PDF reader with smooth navigation
 - 🤖 **AI Assistant** — Powered by Google Gemini API
 - 💬 **Multi-turn Conversation** — Ask follow-up questions in context
+- 🔧 **LLM Studio Support** — Integrate with local LLM models for offline AI assistance
+- 📂 **Session Management** — Save and manage chat sessions across PDFs
+- 📎 **PDF Opener Integration** — Set as default PDF opener for direct access
 - 🎨 **Modern UI** — Built with React and Tailwind CSS
 - 🌙 **Dark Mode Support** — Easy on the eyes
 - ⚡ **Fast Performance** — Native desktop performance with Electron
@@ -190,22 +193,15 @@ npm run build:mac    # or build:win
 - Export chat/history functionality
 ---
 
-# 🛣️ Planned Features
+# 🛣️ Planned Features - latest relase 
 
-- Drag & drop PDF upload
-- Chat history management
-- Offline/local AI model support
-- Multi-language document understanding
+- Drag & drop PDF upload  ✅
+- Chat history management ✅
+- Offline/local AI model support ✅
 
-Expected with next version  release 
 ---
 
-# 🐛 Known Issues
 
-- Large PDFs may increase response time
-- Some complex document layouts affect extraction quality
-- High token usage on very large context windows
-- Desktop packaging optimization is still in progress
 
 ## 🤝 Contributing
 
