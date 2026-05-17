@@ -30,6 +30,14 @@
 - ✅ **Privacy-First** — Your PDFs stay on your machine
 
 ---
+## �️ Screenshots
+
+![PDF Agent Assist screenshot 1](./screenshots/in-app1.png)
+
+![PDF Agent Assist screenshot 2](./screenshots/in-app2.png)
+
+---
+
 
 ## 📥 Downloads
 
