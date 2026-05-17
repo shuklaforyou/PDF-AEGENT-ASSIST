@@ -32,7 +32,7 @@
 ---
 ## �️ Screenshots
 
-![PDF Agent Assist screenshot 1](./screenshots/in-app1.png)
+![PDF Agent Assist screenshot 1](./screenshots/hero.png)
 
 ![PDF Agent Assist screenshot 2](./screenshots/in-app2.png)
 
